@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-	entry: path.resolve(__dirname, '../src/index.ts'),
+	entry: path.join(__dirname, '../src/index.ts'),
 	module: {
 		rules: [
 			{
@@ -16,17 +16,20 @@ module.exports = {
 		],
 	},
 	resolve: {
-		extensions: [ '.tsx', '.ts', '.js' ],	
+		extensions: [ '.tsx', '.ts', '.js' ],
+		alias: {
+			"@": path.join(__dirname, '../src') 
+		},
 	},
 	plugins: [
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
-			template:	path.resolve(__dirname, '../public/index.html'),
+			template:	path.join(__dirname, '../public/index.html'),
 		}),
 	],
 	output: {
 		filename: 'seidor-test.js',
-		path: path.resolve(__dirname, '../dist'),
+		path: path.join(__dirname, '../dist'),
 	},
 }
 
