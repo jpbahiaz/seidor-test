@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components"
 const AppStyle = createGlobalStyle`
 	body {
 		background-color: var(--background);
+		height: fit-content;
 	}
 
 	:root {
