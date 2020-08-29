@@ -8,7 +8,9 @@ type TPage = {
 function Page({ children }: TPage) {
 	return (
 		<PageStyle>
-			{ children }
+			<div className="page-content">
+				{ children }
+			</div>
 		</PageStyle>
 	)
 }

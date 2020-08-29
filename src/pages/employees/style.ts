@@ -3,13 +3,15 @@ import { displayFlexColumn } from '@/common/styles'
 
 const EmployeesStyle = styled.div`
 	${displayFlexColumn}
+	height: 100%;
 
 	.content {
 		color: white;
-		width: 80%;
+		width: 90%;
+		max-width: 600px;
 		background: var(--primary);
 		border-radius: 3px;
-		margin-top: 20px;
+		margin-top: 30px;
 		padding: 20px 0;
 
 		${displayFlexColumn}
@@ -42,7 +44,7 @@ const EmployeesStyle = styled.div`
 			font-weight: bold;
 			background-color: var(--secondary);
 			border-radius: 3px;
-			width: 55%;
+			width: 60%;
 			padding: 10px 0;
 			margin: 5px 0;
 		}
