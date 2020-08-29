@@ -3,7 +3,7 @@ import pessoas from '@/assets/json/pessoas.json'
 
 const initialState = {
 	// data: [] as TEmployee[]
-	data: pessoas as TEmployee[]
+	data: pessoas.concat(pessoas).concat(pessoas).concat(pessoas).concat(pessoas)
 } as TEmployeeState
 
 function employeesReducer(state: TEmployeeState = initialState, action: EmployeesActions) {

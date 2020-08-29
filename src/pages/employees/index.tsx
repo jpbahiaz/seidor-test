@@ -5,6 +5,12 @@ import EditEmployee from './editEmployee'
 import AddEmployee from './addEmployee'
 import ShowEmployees from './showEmployees'
 import logo from '@/assets/images/4tax_logo.png'
+import Navbar from '@/components/navbar'
+
+const EmployeesLinks = [
+	{ text: 'Funcionários', path: '/employees/show' },
+	{ text: 'Registrar Funcionário', path: '/employees/add' },
+]
 
 function Employees() {
 	return (
@@ -16,6 +22,7 @@ function Employees() {
 				<AddEmployee />
 			</Route>
 			<Route path="/employees/show">
+				<Navbar links={EmployeesLinks}/>
 				<ShowEmployees />
 			</Route>
 			<Route path="/">

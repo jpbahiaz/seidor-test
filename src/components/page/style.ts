@@ -23,7 +23,7 @@ const PageStyle = styled.div`
 			max-width: 80vw;
 			/* height: 300px; */
 			margin: auto;
-			margin-top: 200px;
+			margin-top: 150px;
 		}
 	}
 `

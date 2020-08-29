@@ -5,6 +5,7 @@ export type TEmployee = {
 	salary: number;
 	dependents: number;
 	discount: number;
+	IRRFDiscount: number;
 }
 
 export type TEmployeeState = {

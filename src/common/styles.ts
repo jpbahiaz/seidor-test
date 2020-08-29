@@ -1,6 +1,16 @@
+const centerFlex = `
+	justify-content: center;
+	align-items: center;
+`
+
 export const displayFlexColumn = `
 	display: flex;
 	flex-flow: column;
-	justify-content: center;
-	align-items: center;
+	${centerFlex}
+`
+
+export const displayFlexRow = `
+	display: flex;
+	flex-flow: row;
+	${centerFlex}
 `
