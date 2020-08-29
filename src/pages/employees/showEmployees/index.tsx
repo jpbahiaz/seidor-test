@@ -1,10 +1,11 @@
 import React from 'react'
 import ShowEmployeesStyle from './style'
+import PageHeader from '@/components/pageHeader'
 
 function ShowEmployees() {
 	return (
 		<ShowEmployeesStyle>
-			Hi from show employees!
+			<PageHeader title='Funcionários'/>
 		</ShowEmployeesStyle>
 	)
 }

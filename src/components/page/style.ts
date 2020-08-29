@@ -3,7 +3,7 @@ import { displayFlexColumn } from '@/common/styles'
 
 const PageStyle = styled.div`
 	${displayFlexColumn}
-	height: 90vh;
+	height: 85vh;
 
 	.page-content {
 		padding: 30px 10px;
