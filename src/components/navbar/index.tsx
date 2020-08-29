@@ -1,7 +1,7 @@
 import React from 'react'
 import NavbarStyle from './style'
 import logo from '@/assets/images/logoSeidor.png'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 type TLink = {
 	text: string;
@@ -19,9 +19,11 @@ function renderLinks(links: TLink[]) {
 }
 
 function Navbar({ links }: TNavbar) {
+	const history = useHistory()
+
 	return (
 		<NavbarStyle>
-			<img src={logo} alt=""/>
+			<img onClick={() => history.push('/')} src={logo} alt=""/>
 			<div className="links">
 				{ renderLinks(links) }
 			</div>

@@ -26,6 +26,27 @@ const ShowEmployeesStyle = styled.div`
 		height: 75%;
 		overflow-y: scroll;
 	}
+
+	.employee-actions {
+		button {
+			cursor: pointer;
+			border: none;
+			border-radius: 3px;
+			background-color: var(--danger);
+			padding: 5px;
+			color: white;
+			margin: 0 5px;
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+			padding: 5px;
+			margin: 0 5px;
+			background-color: var(--secondary);
+			border-radius: 3px;
+		}
+	}
 `
 
 export default ShowEmployeesStyle

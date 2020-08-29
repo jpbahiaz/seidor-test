@@ -15,15 +15,15 @@ const EmployeesLinks = [
 function Employees() {
 	return (
 		<Switch>
-			<Route path="/employees/edit/:id">
-				<EditEmployee />
-			</Route>
 			<Route path="/employees/add">
 				<AddEmployee />
 			</Route>
 			<Route path="/employees/show">
 				<Navbar links={EmployeesLinks}/>
 				<ShowEmployees />
+			</Route>
+			<Route path="/employees/:id">
+				<EditEmployee />
 			</Route>
 			<Route path="/">
 				<EmployeesStyle>

@@ -4,7 +4,7 @@ import EditEmployeeStyle from './style'
 function EditEmployee() {
 	return (
 		<EditEmployeeStyle>
-			Hi from show employees!
+			Hi from edit employees!
 		</EditEmployeeStyle>
 	)
 }

@@ -5,7 +5,7 @@ const NavbarStyle = styled.nav`
 	${displayFlexRow}
 	border: 1px solid var(--primary);
 	border-radius: 3px;
-	padding: 10px 0;
+	padding: 15px 0;
 
 	img {
 		width: 30%;
