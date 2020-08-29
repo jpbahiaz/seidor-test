@@ -1,5 +1,5 @@
 import { TEmployeeState, TEmployee, EmployeesActions } from "./types"
-import pessoas from '@/static/pessoas.json'
+import pessoas from '@/assets/json/pessoas.json'
 
 const initialState = {
 	// data: [] as TEmployee[]

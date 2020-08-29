@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import EditEmployee from './editEmployee'
 import AddEmployee from './addEmployee'
 import ShowEmployees from './showEmployees'
+import logo from '@/assets/images/logoSeidor.png'
 
 function Employees() {
 	return (
@@ -17,9 +18,9 @@ function Employees() {
 			<Route path="/employees/show">
 				<ShowEmployees />
 			</Route>
-			<Route path='/'>
+			<Route path="/">
 				<EmployeesStyle>
-					Hi from Employees!
+					<img src={logo} alt="Logo Seidor"/>
 				</EmployeesStyle>
 			</Route>
 		</Switch>
