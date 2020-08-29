@@ -30,6 +30,7 @@ module.exports = {
 	output: {
 		filename: 'seidor-test.js',
 		path: path.join(__dirname, '../dist'),
+		publicPath: '/'
 	},
 }
 
