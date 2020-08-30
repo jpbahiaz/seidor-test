@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const ShowEmployeesStyle = styled.div`
-	height: 100%;
+	height: 80%;
 
 	table {
 		margin: auto;

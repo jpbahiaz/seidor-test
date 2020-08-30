@@ -1,5 +1,4 @@
 import {
-	TEmployeeState,
 	TEmployee,
 	EmployeesActions,
 	TEmployeeById,
@@ -11,40 +10,11 @@ import {
 import pessoas from '@/assets/json/pessoas.json'
 import { EMPLOYEE_CREATED, EMPLOYEE_UPDATED, EMPLOYEE_DELETED } from "./actions"
 import { combineReducers } from "redux"
+import { generateId } from "@/common/functions"
 
-const initialState = pessoas.reduce((initialState: TEmployeeState, pessoa: TEmployee) => {
-	return {
-		byId: {
-			...initialState.byId,
-			[pessoa.id]: pessoa
-		},
-		allIds: [pessoa.id, ...initialState.allIds]
-	}
-}, {byId: {}, allIds: []})
+const mockPeople = pessoas.map((p: TEmployee) => ({ ...p, id: generateId() }))
 
-// function employeesReducer(state: TEmployeeState = initialState, action: EmployeesActions) {
-// 	switch (action.type) {
-// 		case EMPLOYEE_CREATED:
-// 			return {
-// 				...state,
-
-// 			}
-		
-// 		case EMPLOYEE_UPDATED:
-// 			return {
-// 				...state,
-// 			}
-
-// 		case EMPLOYEE_DELETED:
-// 			return {
-// 				...state,
-// 			}
-// 		default:
-// 			return state
-// 	}
-// }
-
-const initialEmployeesById = pessoas.reduce((state: TEmployeeById, p: TEmployee) => {
+const initialEmployeesById = mockPeople.reduce((state: TEmployeeById, p: TEmployee) => {
 	return { ...state, [p.id]: p }
 }, {})
 function employeesById(state: TEmployeeById = initialEmployeesById, action: EmployeesActions) {
@@ -91,7 +61,7 @@ function deleteEmployee(state: TEmployeeById, action: TEmployeeDeleted) {
 	return newEmployeeById
 }
 
-const initialAllEmployees = pessoas.map((p: TEmployee) => p.id)
+const initialAllEmployees = mockPeople.map((p: TEmployee) => p.id)
 function allEmployees(state: TAllEmployees = initialAllEmployees, action: EmployeesActions) {
 	switch (action.type) {
 		case EMPLOYEE_CREATED:

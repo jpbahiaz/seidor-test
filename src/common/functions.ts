@@ -5,3 +5,4 @@ export const generateId = (function (){
 		return ++currentId
 	}
 })()
+

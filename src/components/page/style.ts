@@ -21,7 +21,7 @@ const PageStyle = styled.div`
 	@media(min-width: 800px) {
 		.page-content {
 			padding: 30px;
-			width: 60vw;
+			width: 80vw;
 			/* height: 300px; */
 			margin: auto;
 		}
