@@ -8,8 +8,9 @@ const NavbarStyle = styled.nav`
 	padding: 15px 0;
 
 	img {
-		width: 30%;
+		width: 200px;
 		margin-left: 20px;
+		margin-right: 50px;
 	}
 
 	.links {

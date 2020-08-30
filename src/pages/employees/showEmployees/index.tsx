@@ -7,8 +7,8 @@ import { TEmployee } from '@/redux/modules/employees/types'
 import { Link } from 'react-router-dom'
 
 function renderEmployees(employees: TEmployee[]) {
-	return employees.map((employee: TEmployee) => (
-		<tr>
+	return employees.map((employee: TEmployee, index: number) => (
+		<tr key={`row-employee-${index}`}>
 			<td>{ employee.name }</td>
 			<td>{ employee.cpf }</td>
 			<td>{ employee.salary }</td>
@@ -42,7 +42,9 @@ function ShowEmployees() {
 							<th>Ações</th>
 						</tr>
 					</thead>
-					{ renderEmployees(employees) }
+					<tbody>
+						{ renderEmployees(employees) }
+					</tbody>
 				</table>
 			</div>
 		</ShowEmployeesStyle>

@@ -16,6 +16,7 @@ function Employees() {
 	return (
 		<Switch>
 			<Route path="/employees/add">
+				<Navbar links={EmployeesLinks}/>
 				<AddEmployee />
 			</Route>
 			<Route path="/employees/show">

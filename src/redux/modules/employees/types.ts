@@ -12,9 +12,14 @@ export type TEmployeeState = {
 	data: TEmployee[]
 }
 
-type TSetEmployee = {
+type TEmployeeAdded = {
 	type: string,
 	payload: TEmployee
 }
 
-export type EmployeesActions = TSetEmployee
+type TEmployeeUpdated = {
+	type: string,
+	payload: TEmployee
+}
+
+export type EmployeesActions = TEmployeeAdded | TEmployeeUpdated
