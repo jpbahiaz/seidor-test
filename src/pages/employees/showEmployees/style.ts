@@ -24,7 +24,7 @@ const ShowEmployeesStyle = styled.div`
 
 	.employees-table {
 		height: 75%;
-		overflow-y: scroll;
+		overflow-y: auto;
 	}
 
 	.employee-actions {

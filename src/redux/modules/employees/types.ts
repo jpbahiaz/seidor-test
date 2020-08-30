@@ -9,7 +9,10 @@ export type TEmployee = {
 }
 
 export type TEmployeeState = {
-	data: TEmployee[]
+	byId: {
+		[id: number]: TEmployee
+	},
+	allIds: number[]
 }
 
 type TEmployeeAdded = {
@@ -17,9 +20,14 @@ type TEmployeeAdded = {
 	payload: TEmployee
 }
 
+type TEmployeeDeleted = {
+	type: string,
+	payload: number
+}
+
 type TEmployeeUpdated = {
 	type: string,
 	payload: TEmployee
 }
 
-export type EmployeesActions = TEmployeeAdded | TEmployeeUpdated
+export type EmployeesActions = TEmployeeAdded | TEmployeeUpdated | TEmployeeDeleted

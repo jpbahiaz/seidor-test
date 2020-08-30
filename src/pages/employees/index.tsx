@@ -24,6 +24,7 @@ function Employees() {
 				<ShowEmployees />
 			</Route>
 			<Route path="/employees/:id">
+				<Navbar links={EmployeesLinks}/>
 				<EditEmployee />
 			</Route>
 			<Route path="/">

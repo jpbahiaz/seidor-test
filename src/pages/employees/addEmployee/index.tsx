@@ -3,12 +3,12 @@ import AddEmployeeStyle from './style'
 import PageHeader from '@/components/pageHeader'
 import EmployeeForm from '@/components/employeeForm'
 import { TEmployee, EmployeesActions } from '@/redux/modules/employees/types'
-import { addEmployee } from '@/redux/modules/employees/actions'
+import { employeeCreated } from '@/redux/modules/employees/actions'
 import { useDispatch } from 'react-redux'
 
 function handleFormDispatch(dispatch: Dispatch<EmployeesActions>) {
 	return function dispatcher(employee: TEmployee) {
-		dispatch(addEmployee(employee))
+		dispatch(employeeCreated(employee))
 	}
 }
 

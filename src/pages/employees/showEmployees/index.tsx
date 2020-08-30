@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 import ShowEmployeesStyle from './style'
 import PageHeader from '@/components/pageHeader'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { TApplication } from '@/redux/rootReducer'
-import { TEmployee } from '@/redux/modules/employees/types'
+import { TEmployee, EmployeesActions } from '@/redux/modules/employees/types'
 import { Link } from 'react-router-dom'
+import { employeeDeleted } from '@/redux/modules/employees/actions'
 
-function renderEmployees(employees: TEmployee[]) {
+function renderEmployees(employees: TEmployee[], dispatch: Dispatch<EmployeesActions>) {
 	return employees.map((employee: TEmployee, index: number) => (
 		<tr key={`row-employee-${index}`}>
 			<td>{ employee.name }</td>
@@ -16,15 +17,17 @@ function renderEmployees(employees: TEmployee[]) {
 			<td>{ employee.dependents }</td>
 			<td>{ employee.IRRFDiscount }</td>
 			<td className="employee-actions">
-				<button>Deletar</button>
 				<Link to={`/employees/${employee.id}`}>Editar</Link>
+				<button onClick={() => dispatch(employeeDeleted(employee.id))}>Deletar</button>
 			</td>
 		</tr>
 	))
 }
 
 function ShowEmployees() {
-	const employees = useSelector((state: TApplication) => state.employees.data)
+	const employees = useSelector((state: TApplication) => state.employees.allIds
+		.map((id: number) => state.employees.byId[id]))
+	const dispatch = useDispatch()
 
 	return (
 		<ShowEmployeesStyle>
@@ -43,7 +46,7 @@ function ShowEmployees() {
 						</tr>
 					</thead>
 					<tbody>
-						{ renderEmployees(employees) }
+						{ renderEmployees(employees, dispatch) }
 					</tbody>
 				</table>
 			</div>
