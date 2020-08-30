@@ -13,8 +13,6 @@ const PageStyle = styled.div`
 		border-radius: 3px;
 		box-shadow: 0 5px 13px 0 var(--shadow);
 		transition: .8s;
-		max-height: 80vh;
-		min-height: 40vh;
 		width: fit-content;
 	}
 
@@ -24,6 +22,7 @@ const PageStyle = styled.div`
 			width: 80vw;
 			/* height: 300px; */
 			margin: auto;
+			max-height: 80vh;
 		}
 	}
 `
