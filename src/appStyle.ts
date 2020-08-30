@@ -4,6 +4,7 @@ const AppStyle = createGlobalStyle`
 	body {
 		background-color: var(--background);
 		height: fit-content;
+		margin: 0;
 	}
 
 	:root {

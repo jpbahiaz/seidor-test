@@ -38,11 +38,11 @@ function ShowEmployees() {
 						<tr>
 							<th>Nome</th>
 							<th>CPF</th>
-							<th>Salário</th>
-							<th>Desconto</th>
+							<th>Salário (R$)</th>
+							<th>Desconto (R$)</th>
 							<th>Dependentes</th>
-							<th>Desconto IRPF</th>
-							<th>Ações</th>
+							<th>Desconto IRPF (R$)</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>

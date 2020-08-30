@@ -6,6 +6,7 @@ import AddEmployee from './addEmployee'
 import ShowEmployees from './showEmployees'
 import logo from '@/assets/images/4tax_logo.png'
 import Navbar from '@/components/navbar'
+import { ADD_EMPLOYEE, SHOW_EMPLOYEES, EDIT_EMPLOYEE } from '@/common/urls'
 
 const EmployeesLinks = [
 	{ text: 'Funcionários', path: '/employees/show' },
@@ -15,15 +16,15 @@ const EmployeesLinks = [
 function Employees() {
 	return (
 		<Switch>
-			<Route path="/employees/add">
+			<Route path={ADD_EMPLOYEE}>
 				<Navbar links={EmployeesLinks}/>
 				<AddEmployee />
 			</Route>
-			<Route path="/employees/show">
+			<Route path={SHOW_EMPLOYEES}>
 				<Navbar links={EmployeesLinks}/>
 				<ShowEmployees />
 			</Route>
-			<Route path="/employees/:id">
+			<Route path={EDIT_EMPLOYEE}>
 				<Navbar links={EmployeesLinks}/>
 				<EditEmployee />
 			</Route>
@@ -34,8 +35,8 @@ function Employees() {
 						<span className="title">Bem vindo!</span>
 						<span className="subtitle">Este sistema é dedicado ao cálculo do IRRF e à listagem de funcionários</span>
 						<div className="links">
-							<Link to='/employees/show'>Funcionários</Link>
-							<Link to='/employees/add'>Registrar Funcionário</Link>
+							<Link to={SHOW_EMPLOYEES}>Funcionários</Link>
+							<Link to={ADD_EMPLOYEE}>Registrar Funcionário</Link>
 						</div>
 					</section>
 				</EmployeesStyle>

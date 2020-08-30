@@ -5,9 +5,24 @@ const ShowEmployeesStyle = styled.div`
 
 	table {
 		margin: auto;
+		border: 1px solid var(--primary);
+		border-collapse: collapse;
+		display: block;
+		width: fit-content;
+		border-radius: 3px;
+
+		tbody {
+			tr:last-child {
+				td {
+					border-bottom: none;
+				}
+			}
+		}
+
 		th, td {
 			text-align: left;
 			padding: 5px 10px;
+			border-bottom: 1px solid black;
 		}
 		
 		th {
@@ -16,11 +31,6 @@ const ShowEmployeesStyle = styled.div`
 			position: sticky;
 			top: -1px;
 		}
-	}
-
-	table, th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
 	}
 
 	.employees-table {
