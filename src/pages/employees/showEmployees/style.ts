@@ -4,6 +4,7 @@ const ShowEmployeesStyle = styled.div`
 	height: 100%;
 
 	table {
+		margin: auto;
 		th, td {
 			text-align: left;
 			padding: 5px 10px;

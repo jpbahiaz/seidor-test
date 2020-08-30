@@ -48,7 +48,7 @@ function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 					<input type="number" name="dependents" ref={register}/>
 				</div>
 			</div>
-			<button type="submit">Submit</button>
+			<button type="submit">Confirmar</button>
 		</EmployeeFormStyle>
 	)
 }
