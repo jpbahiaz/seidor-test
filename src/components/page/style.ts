@@ -3,7 +3,7 @@ import { displayFlexColumn } from '@/common/styles'
 
 const PageStyle = styled.div`
 	${displayFlexColumn}
-	height: 85vh;
+	height: 90vh;
 
 	.page-content {
 		padding: 30px 10px;
@@ -12,7 +12,7 @@ const PageStyle = styled.div`
 		border-radius: 3px;
 		box-shadow: 0 5px 13px 0 var(--shadow);
 		transition: 2s;
-		max-height: 95vh;
+		max-height: 70vh;
 		min-height: 40vh;
 		width: fit-content;
 	}
@@ -23,7 +23,6 @@ const PageStyle = styled.div`
 			max-width: 80vw;
 			/* height: 300px; */
 			margin: auto;
-			margin-top: 150px;
 		}
 	}
 `

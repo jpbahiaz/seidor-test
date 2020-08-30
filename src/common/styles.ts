@@ -11,6 +11,6 @@ export const displayFlexColumn = `
 
 export const displayFlexRow = `
 	display: flex;
-	flex-flow: row;
+	flex-flow: row wrap;
 	${centerFlex}
 `
