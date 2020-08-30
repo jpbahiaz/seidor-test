@@ -28,7 +28,7 @@ export type TEmployeeCreated = {
 
 export type TEmployeeDeleted = {
 	type: string,
-	payload: { employeeId: number; }
+	payload: { employeeId?: number; }
 }
 
 export type TEmployeeUpdated = {
@@ -36,4 +36,4 @@ export type TEmployeeUpdated = {
 	payload: TEmployee
 }
 
-export type EmployeesActions = TEmployeeCreated & TEmployeeUpdated & TEmployeeDeleted
+export type EmployeesActions = TEmployeeCreated | TEmployeeUpdated | TEmployeeDeleted

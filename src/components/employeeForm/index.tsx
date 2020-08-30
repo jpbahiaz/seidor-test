@@ -37,15 +37,15 @@ function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 			<div className="group">
 				<div className="field">
 					<label htmlFor="salary">Salário</label>
-					<input type="number" name="salary" ref={register}/>
+					<input type="text" name="salary" ref={register}/>
 				</div>
 				<div className="field">
 					<label htmlFor="discount">Desconto da previdência</label>
-					<input type="number" name="discount" ref={register}/>
+					<input type="text" name="discount" ref={register}/>
 				</div>
 				<div className="field">
 					<label htmlFor="dependents">Dependentes</label>
-					<input type="number" name="dependents" ref={register}/>
+					<input type="text" name="dependents" ref={register}/>
 				</div>
 			</div>
 			<button type="submit">Confirmar</button>

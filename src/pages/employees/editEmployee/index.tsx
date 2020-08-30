@@ -8,9 +8,9 @@ import { TEmployee, EmployeesActions } from '@/redux/modules/employees/types'
 import { employeeUpdated } from '@/redux/modules/employees/actions'
 import { TApplication } from '@/redux/rootReducer'
 
-function handleFormDispatch(dispatch: Dispatch<EmployeesActions>) {
+function handleFormDispatch(dispatch: Dispatch<EmployeesActions>, currentEmployee: TEmployee) {
 	return function dispatcher(employee: TEmployee) {
-		dispatch(employeeUpdated(employee))
+		dispatch(employeeUpdated({...currentEmployee, ...employee}))
 	}
 }
 
@@ -26,7 +26,7 @@ function EditEmployee() {
 	return (
 		<EditEmployeeStyle>
 			<PageHeader title='Eidtar Funcionário'/>
-			<EmployeeForm employee={employee} dispatchAction={handleFormDispatch(dispatch)}/>
+			<EmployeeForm employee={employee} dispatchAction={handleFormDispatch(dispatch, employee)}/>
 		</EditEmployeeStyle>
 	)
 }
