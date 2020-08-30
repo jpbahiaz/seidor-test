@@ -10,9 +10,13 @@ import {
 import pessoas from '@/assets/json/pessoas.json'
 import { EMPLOYEE_CREATED, EMPLOYEE_UPDATED, EMPLOYEE_DELETED } from "./actions"
 import { combineReducers } from "redux"
-import { generateId } from "@/common/functions"
+import { generateId, calcIRRFDiscount, calcBaseSalary, getDeductionParcelPercentage } from "@/common/functions"
 
-const mockPeople = pessoas.map((p: TEmployee) => ({ ...p, id: generateId() }))
+const mockPeople = pessoas.map((p: TEmployee) => ({
+	...p,
+	id: generateId(),
+	IRRFDiscount: calcIRRFDiscount(p)
+}))
 
 const initialEmployeesById = mockPeople.reduce((state: TEmployeeById, p: TEmployee) => {
 	return { ...state, [p.id]: p }
@@ -38,7 +42,10 @@ function createEmployee(state: TEmployeeById, action: TEmployeeCreated) {
 	
 	return {
 		...state,
-		[payload.id]: payload
+		[payload.id]: {
+			...payload,
+			IRRFDiscount: calcIRRFDiscount(payload)
+		} as TEmployee
 	}
 }
 
@@ -49,7 +56,8 @@ function updateEmployee(state: TEmployeeById, action: TEmployeeUpdated) {
 		...state,
 		[payload.id]: {
 			...state[payload.id],
-			...payload
+			...payload,
+			IRRFDiscount: calcIRRFDiscount(payload)
 		}
 	}
 }
