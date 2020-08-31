@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import { displayFlexColumn } from '@/common/styles'
 
 const PageStyle = styled.div`
-	${displayFlexColumn}
-	height: 100vh;
+	height: calc(100vh - 50px);
 
 	.page-content {
 		padding: 30px 10px;
@@ -17,6 +16,7 @@ const PageStyle = styled.div`
 	}
 
 	@media(min-width: 800px) {
+		margin-top: 50px;
 		.page-content {
 			padding: 30px;
 			width: 80vw;

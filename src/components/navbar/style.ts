@@ -9,8 +9,7 @@ const NavbarStyle = styled.nav`
 
 	img {
 		width: 200px;
-		margin-left: 20px;
-		margin-right: 50px;
+		margin-bottom: 20px;
 	}
 
 	.links {
@@ -25,6 +24,14 @@ const NavbarStyle = styled.nav`
 			text-decoration: none;
 			color: white;
 			margin: 0 5px;
+		}
+	}
+
+	@media(min-width: 800px) {
+		img {
+			margin-left: 20px;
+			margin-right: 50px;
+			margin-bottom: 0;
 		}
 	}
 `

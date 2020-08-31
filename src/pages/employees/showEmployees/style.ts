@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { displayFlexColumn } from '@/common/styles'
 
 const ShowEmployeesStyle = styled.div`
 	height: 80%;
@@ -20,7 +21,7 @@ const ShowEmployeesStyle = styled.div`
 		}
 
 		th, td {
-			text-align: left;
+			text-align: right;
 			padding: 5px 10px;
 			border-bottom: 1px solid black;
 		}
@@ -35,7 +36,44 @@ const ShowEmployeesStyle = styled.div`
 
 	.employees-table {
 		height: 75%;
+		max-height: 60vh;
 		overflow-y: auto;
+	}
+
+	.employees-list {
+		${displayFlexColumn}
+
+		.employee-item {
+			width: 100%;
+			border: 1px solid black;
+			border-radius: 3px;
+			margin: 5px 0;
+			padding: 5px;
+			
+			.prop:nth-child(2) {
+				border-top: none;
+			}
+
+			.prop {
+				padding: 5px 0 ;
+				border-top: 1px solid black;
+
+				strong {
+					margin-right: 5px;
+				}
+			}
+			.name {
+				border-top: none;
+				text-align: center;
+				background: var(--primary);
+				color: white;
+				border-radius: 3px;
+			}
+			.employee-actions {
+				margin: 5px 0;
+				text-align: center;
+			}
+		}
 	}
 
 	.employee-actions {
@@ -83,6 +121,10 @@ const ShowEmployeesStyle = styled.div`
 			margin: 10px auto 0;
 			padding: 5px 0;
 			text-decoration: none;
+			text-align: center;
+		}
+
+		span {
 			text-align: center;
 		}
 	}

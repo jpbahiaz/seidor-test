@@ -36,6 +36,7 @@ const EmployeeFormStyle = styled.form`
 	}
 
 	.error {
+		margin-top: 5px;
 		color: var(--danger);
 		font-weight: bold;
 	}

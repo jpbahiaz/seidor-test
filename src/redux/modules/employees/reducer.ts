@@ -18,10 +18,10 @@ const mockPeople = pessoas.map((p: TEmployee) => ({
 	IRRFDiscount: calcIRRFDiscount(p)
 }))
 
-// const initialEmployeesById = mockPeople.reduce((state: TEmployeeById, p: TEmployee) => {
-// 	return { ...state, [p.id]: p }
-// }, {})
-function employeesById(state: TEmployeeById = {}, action: EmployeesActions) {
+const initialEmployeesById = mockPeople.reduce((state: TEmployeeById, p: TEmployee) => {
+	return { ...state, [p.id]: p }
+}, {})
+function employeesById(state: TEmployeeById = initialEmployeesById, action: EmployeesActions) {
 	switch (action.type) {
 		case EMPLOYEE_CREATED:
 			return createEmployee(state, action as TEmployeeCreated)
@@ -70,8 +70,8 @@ function deleteEmployee(state: TEmployeeById, action: TEmployeeDeleted) {
 	return newEmployeeById
 }
 
-// const initialAllEmployees = mockPeople.map((p: TEmployee) => p.id)
-function allEmployees(state: TAllEmployees = [], action: EmployeesActions) {
+const initialAllEmployees = mockPeople.map((p: TEmployee) => p.id)
+function allEmployees(state: TAllEmployees = initialAllEmployees, action: EmployeesActions) {
 	switch (action.type) {
 		case EMPLOYEE_CREATED:
 			return addEmployeeId(state, action as TEmployeeCreated)
