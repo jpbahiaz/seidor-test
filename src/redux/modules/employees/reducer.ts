@@ -44,6 +44,7 @@ function createEmployee(state: TEmployeeById, action: TEmployeeCreated) {
 		...state,
 		[payload.id]: {
 			...payload,
+			// salary: payload.salary.replace(',', '.'),
 			IRRFDiscount: calcIRRFDiscount(payload)
 		} as TEmployee
 	}

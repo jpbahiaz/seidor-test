@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import EmployeeFormStyle from './style'
 import { TEmployee } from '@/redux/modules/employees/types'
 import { useForm } from 'react-hook-form'
-import { maskCurrency } from '@/common/masks'
+import { maskCurrency, maskCPF } from '@/common/masks'
 import { validate } from 'gerador-validador-cpf'
 
 type TEmployeeForm = {
@@ -13,6 +13,15 @@ type TEmployeeForm = {
 
 function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 	const { register, handleSubmit, setValue, errors } = useForm()
+
+	function sendForm(data: any) {
+		dispatchAction({
+			...data,
+			salary: parseFloat(data.salary.replace(',', '.').replace(/[.,]$/, '')),
+			discount: parseFloat(data.discount.replace(',', '.').replace(/[.,]$/, '')),
+			dependents: parseInt(data.dependents)
+		})
+	}
 
 	useEffect(() => {
 		if (employee) {
@@ -29,10 +38,10 @@ function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 	}, [ errors ])
 
 	return (
-		<EmployeeFormStyle onSubmit={handleSubmit(dispatchAction)}>
+		<EmployeeFormStyle onSubmit={handleSubmit(sendForm)}>
 			<div className="group">
 				<div className="field">
-					<label htmlFor="name">Nome</label>
+					<label htmlFor="name">Nome Completo</label>
 					<input type="text" name="name" ref={register({
 						required: 'Campo obrigatório',
 						maxLength: { value: 45, message: 'Nome deve ter menos de 45 caracteres'}
@@ -49,7 +58,7 @@ function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 							validate: value => validate(value) || 'CPF inválido'
 						})}
 						onChange={({ target }) => {
-							setValue('cpf', target.value.replace(/\D/g, '').replace(/(\d{11}).*/, '$1'))
+							setValue('cpf', maskCPF(target.value))
 						}}
 					/>
 					{ errors.cpf && <span className="error">{ errors.cpf.message }</span> }
@@ -64,7 +73,7 @@ function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 						ref={register({
 							required: 'Campo obrigatório',
 							validate: {
-								validNumber: value => !isNaN(parseFloat(value)) || 'Número inválido',
+								validNumber: value => !isNaN(parseFloat(value.replace(',', '.'))) || 'Número inválido',
 								gtZero: value => parseFloat(value) >= 0 || 'Salário deve ser maior que 0',
 							}
 						})}
@@ -80,7 +89,7 @@ function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 						ref={register({
 							required: 'Campo obrigatório',
 							validate: {
-								validNumber: value => !isNaN(parseFloat(value)) || 'Número inválido',
+								validNumber: value => !isNaN(parseFloat(value.replace(',', '.'))) || 'Número inválido',
 								gteZero: value => parseFloat(value) >= 0 || 'Desconto deve ser maior ou igual a 0',
 							}
 						})}
@@ -91,7 +100,7 @@ function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 			</div>
 			<div className="group">
 				<div className="field">
-					<label htmlFor="dependents">Dependentes</label>
+					<label htmlFor="dependents">Número de dependentes</label>
 					<input
 						type="text"
 						name="dependents"
