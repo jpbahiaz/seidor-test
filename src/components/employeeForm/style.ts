@@ -44,7 +44,7 @@ const EmployeeFormStyle = styled.form`
 		cursor: pointer;
 		font-size: 18px;
 		color: white;
-		padding: 5px;
+		padding: 5px 10px;
 		border: none;
 		outline: none;
 		background-color: var(--primary);

@@ -58,6 +58,34 @@ const ShowEmployeesStyle = styled.div`
 			border-radius: 3px;
 		}
 	}
+
+	.no-employees {
+		width: fit-content;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    background: var(--primary);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 15px auto 30px;
+		border-radius: 3px;
+
+		a {
+			font-size: 20px;
+			font-weight: bold;
+			border: none;
+			border-radius: 3px;
+			background-color: var(--secondary);
+			color: white;
+			width: 80%;
+			margin: 10px auto 0;
+			padding: 5px 0;
+			text-decoration: none;
+			text-align: center;
+		}
+	}
 `
 
 export default ShowEmployeesStyle

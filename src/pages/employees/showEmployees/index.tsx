@@ -6,6 +6,7 @@ import { TApplication } from '@/redux/rootReducer'
 import { TEmployee, EmployeesActions } from '@/redux/modules/employees/types'
 import { Link } from 'react-router-dom'
 import { employeeDeleted } from '@/redux/modules/employees/actions'
+import { ADD_EMPLOYEE } from '@/common/urls'
 
 function renderEmployees(employees: TEmployee[], dispatch: Dispatch<EmployeesActions>) {
 	return employees.map((employee: TEmployee, index: number) => (
@@ -32,6 +33,12 @@ function ShowEmployees() {
 	return (
 		<ShowEmployeesStyle>
 			<PageHeader title='Funcionários'/>
+			{ employees && employees.length === 0 && 
+				<div className="no-employees">
+					<span>Não há nenhum funcionário cadastrado!</span>
+					<Link to={ADD_EMPLOYEE}>Cadastre Agora</Link>
+				</div>
+			}
 			<div className="employees-table">
 				<table>
 					<thead>
