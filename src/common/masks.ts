@@ -4,7 +4,9 @@ export function maskCurrency(string: string) {
 	result = result.replace(/^0(\d+)/, '$1')
 	const matchDots = result.match(/[.,]/g)
 	if (matchDots && matchDots.length > 1){
-		result = result.replace(/[.,]/, '')
+		for(let i = 0; i < matchDots.length - 1; i++){
+			result = result.replace(/[.,]/, '')
+		}
 	}
 
 	result = result.replace(/^(\d+,\d{2})\d+/, '$1')
