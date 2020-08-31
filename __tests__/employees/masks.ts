@@ -1,11 +1,15 @@
 import {
-	maskCurrency, maskCPF
+	maskCurrency, maskCPF, padEndZeros
 } from '../../src/common/masks'
 
 describe('MÁSCARAS', () => {
 	describe('MOEDA', () => {
 		it('Deveria permitir somente uma vírgula', () => {
 			expect(maskCurrency('100.000.412,5')).toEqual('100000412,5')
+		})
+		it('Deveria preencher zeros à direita', () => {
+			expect(padEndZeros('1412,5')).toEqual('1412,50')
+			expect(padEndZeros('1412')).toEqual('1412,00')
 		})
 		it('Deveria permitir somente duas casas após a vírgula', () => {
 			expect(maskCurrency('452,542312')).toEqual('452,54')

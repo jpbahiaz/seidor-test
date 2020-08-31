@@ -27,9 +27,9 @@ function EmployeeForm({ employee, dispatchAction }: TEmployeeForm) {
 		if (employee) {
 			setValue('name', employee.name)
 			setValue('cpf', employee.cpf)
-			setValue('salary', employee.salary)
-			setValue('dependents', employee.dependents)
-			setValue('discount', employee.discount)
+			setValue('salary', maskCurrency(`${employee.salary}`))
+			setValue('dependents', maskCurrency(`${employee.dependents}`))
+			setValue('discount', maskCurrency(`${employee.discount}`))
 		}
 	}, [ employee ])
 

@@ -9,9 +9,17 @@ export function maskCurrency(string: string) {
 		}
 	}
 
-	result = result.replace(/^(\d+,\d{2})\d+/, '$1')
+	result = result.replace(/^(\d+[.,]\d{2})\d+/, '$1')
 
 	return result.replace('.', ',')
+}
+
+export function padEndZeros(number: string) {
+	let result = number
+	if(result.match(/^(\d+[,.]\d)$/)) result = result.replace(/^(\d+[,.]\d)$/, '$1') + '0'
+	result = result.replace(/^(\d+)$/, '$1,00')
+
+	return result
 }
 
 export function maskCPF(cpf: string) {

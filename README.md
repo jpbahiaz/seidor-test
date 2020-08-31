@@ -6,6 +6,7 @@ Para instalar o projeto basta cloná-lo em uma pasta `git clone git@github.com:j
 
 ## Scripts
 - `npm start`: Inicie o projeto em modo de desenvolvimento
+- `npm run bulid`: Gere o build do projeto
 - `npm test`: Execute todos os testes
 - `npm run test:watch`: Execute todos os testes e mantenha o jest escutando mudanças nos arquivos
 - `npm run test:verbose`: Execute todos os testes e veja a descrição de cada teste

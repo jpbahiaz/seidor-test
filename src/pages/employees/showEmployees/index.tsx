@@ -8,17 +8,17 @@ import { Link } from 'react-router-dom'
 import { employeeDeleted } from '@/redux/modules/employees/actions'
 import { ADD_EMPLOYEE } from '@/common/urls'
 import { useWindowSize } from '@/common/hooks'
-import { maskCurrency } from '@/common/masks'
+import { maskCurrency, padEndZeros } from '@/common/masks'
 
 function renderEmployeesRows(employees: TEmployee[], dispatch: Dispatch<EmployeesActions>) {
 	return employees.map((employee: TEmployee, index: number) => (
 		<tr key={`row-employee-${index}`}>
 			<td>{ employee.name }</td>
 			<td>{ employee.cpf }</td>
-			<td>{ maskCurrency(`${employee.salary}`) }</td>
-			<td>{ maskCurrency(`${employee.discount}`) }</td>
+			<td>{ padEndZeros(maskCurrency(`${employee.salary}`)) }</td>
+			<td>{ padEndZeros(maskCurrency(`${employee.discount}`)) }</td>
 			<td>{ employee.dependents }</td>
-			<td>{ maskCurrency(`${employee.IRRFDiscount}`) }</td>
+			<td>{ padEndZeros(maskCurrency(`${employee.IRRFDiscount}`)) }</td>
 			<td className="employee-actions">
 				<Link to={`/employees/${employee.id}`}>Editar</Link>
 				<button onClick={() => dispatch(employeeDeleted(employee.id))}>Deletar</button>
@@ -39,11 +39,11 @@ function renderEmployeesList(employees: TEmployee[], dispatch: Dispatch<Employee
 			</div>
 			<div className="prop">
 				<strong>Salário:</strong>
-				<span>{ maskCurrency(`${employee.salary}`) }</span>
+				<span>{ padEndZeros(maskCurrency(`${employee.salary}`)) }</span>
 			</div>
 			<div className="prop">
 				<strong>Desconto da Previdência:</strong>
-				<span>{ maskCurrency(`${employee.discount}`) }</span>
+				<span>{ padEndZeros(maskCurrency(`${employee.discount}`)) }</span>
 			</div>
 			<div className="prop">
 				<strong>Número de Dependentes:</strong>
@@ -51,7 +51,7 @@ function renderEmployeesList(employees: TEmployee[], dispatch: Dispatch<Employee
 			</div>
 			<div className="prop">
 				<strong>Desconto IRPF:</strong>
-				<span>{ maskCurrency(`${employee.IRRFDiscount}`) }</span>
+				<span>{ padEndZeros(maskCurrency(`${employee.IRRFDiscount}`)) }</span>
 			</div>
 			<div className="employee-actions">
 				<Link to={`/employees/${employee.id}`}>Editar</Link>
