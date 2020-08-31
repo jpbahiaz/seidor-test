@@ -40,5 +40,13 @@ module.exports = {
 		path: path.join(__dirname, '../dist'),
 		publicPath: '/'
 	},
+	externals: {
+		'react': 'React',
+		'react-dom': 'ReactDOM',
+		'styled-components': 'styled',
+		'react-router-dom': 'ReactRouterDOM',
+		'react-redux': 'ReactRedux',
+		'redux': 'Redux',
+	}
 }
 
